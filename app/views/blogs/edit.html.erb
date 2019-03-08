@@ -1,0 +1,21 @@
+
+
+<%= form_with(model: @blog, local: true) do |form| %>
+ 
+  
+  <p>
+    <%= form.label :Title %><br>
+    <%= form.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= form.label :Body %><br>
+    <%= form.text_area :body %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+ 
+<% end %>
+ 

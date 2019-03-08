@@ -1,0 +1,25 @@
+ <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header" >
+       <img src="/assets/logo1.png" style="width:140px; margin-top: 2px;">
+    </div>
+    <ul class="nav navbar-nav">
+      
+      
+      <li><%= link_to 'Create Blog',new_blog_path %></a></li>
+      <li><%= link_to 'Shows Blogs',blogs_path %></li>
+      <li><%= link_to 'your Blogs',blogs_myblog_path, method: :post %></li>
+      <li><%= link_to 'Edit Profile',edit_user_registration_path %></li>
+      
+      
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a data-toggle="modal" data-target="#myModal">
+         <span class="glyphicon glyphicon-bell"></span>
+        <span class="badge"><%= mycount%></span></li>
+      <span class="glyphicon glyphicon-log-out" ></span> 
+      <%= link_to "Logout", destroy_user_session_path, method: :delete%></li>
+       
+    </ul>
+  </div>
+</nav> 

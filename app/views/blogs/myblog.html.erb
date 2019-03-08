@@ -1,0 +1,22 @@
+
+<table class="table table-striped" style="width:100%" align="center">
+  <tr>
+    <th style="font-size: 20px;">Blogger Name</th>
+    <th style="font-size: 20px;">Title</th>
+    <th style="font-size: 20px;">Body</th>
+    <th colspan="3" style="font-size: 20px;">Action</th>
+  </tr>
+  <% @blogs.each do |blog| %>
+    <tr>
+      <td><%= blog.user.username %></td>
+      <td><%= blog.title %></td>
+      <td><%= blog.body %></td>
+      <td><%= link_to 'Show', blog_path(blog) %></td>
+      <td><%= link_to 'Edit',  edit_blog_path(blog) %></td>
+      <td><%= link_to 'Destroy', blog_path(blog),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+     
+    </tr>
+  <% end %>
+</table>

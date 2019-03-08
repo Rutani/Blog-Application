@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DeviseDemo</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+   
+  </head>
+
+  <body>
+      <% if current_user != nil %>
+      <%= render 'layouts/navebar'%>
+      <%= render 'layouts/notification'%>
+      <% else %>
+      <%= render 'layouts/login_navebar'%>
+      <% end%>
+     <% flash.each do |key, msg| %>
+        <div class="alert alert-<%= key %>">
+         <a href="#" class="close" data-dismiss="alert">&#215;</a>
+          <%= msg %>    
+        </div>
+      <% end %>
+    <%= yield %>
+    
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<table class="table table-striped" style="width:100%" align="center">
+<h4 style="color: blue">Your Blogs Comments</h4>
+	<%puts "==========================="%>
+	<%#puts @notifications.notifiable_type%>
+
+    <% @notification.each do |notification| %>
+		<tr>
+  			<td>
+ 				 <%=  notification.notifiable.user.username %>
+ 				 <%= notification.notifiable_type %>
+  			     <%= "your" %>
+                 <%= notification.blog.title%>	
+                 <% if notification.read == false%>
+                 <%= link_to'<button style="background-color:lightgreen;">Unread</button>'.html_safe,change_val_path(notification)%>
+                 <% else %>
+                 <%= link_to'<button style="background-color:lightblue;">Read</button>'.html_safe,change_val_path(notification)%>
+                 <% end %>
+			</td>
+  		</tr>
+	<% end %>
+</table>

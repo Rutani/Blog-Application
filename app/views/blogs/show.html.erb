@@ -1,0 +1,79 @@
+
+
+<p>
+  <strong style="font-size: 20px; ">Title:</strong>
+  <b style="font-size: 20px;"> <%= @blog.title  %></b>
+</p>
+ 
+<p>
+  <strong style="font-size: 20px;">Text:</strong>
+  <%= @blog.body%>
+</p>
+<p>
+  <strong style="font-size: 20px;">Created At:</strong>
+  <%= @blog.created_at%>
+</p>
+<p>
+  <strong style="font-size: 20px;">Created By:</strong>
+  <%= @blog.user.username%>
+</p>
+</br>
+</br>
+<p>
+  <b>
+  <%= @blog.likes.count%><%= ' Likes'%>
+  </b>  
+
+    <% if !like_exist%>
+      <%= link_to '<span class="glyphicon glyphicon-thumbs-up"></span>'.html_safe  , blog_likes_path(@blog),method: :post %>
+    <% else %>
+      <%= link_to '<span class="glyphicon glyphicon-thumbs-down"></span>'.html_safe  , blog_like_path(@blog),method: :delete %>
+    <% end%>
+</p>
+
+<p>
+ <% @blog.comments.each do |blog| %>
+    <b>Commentor:  </b><%= blog.user.username%></br>
+    <b>Comment:  </b><%= blog.opinion %></td>
+  </p>
+
+<% end %>
+
+ </div>
+<a data-toggle="modal" data-target="#myModalmy">
+        Comment</a>
+<%= render 'comments/form' %>
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+
+<a href="javascript:void(0)" id="Add">Add comment</a>
+   <div id="divform">
+   <%= render 'comments/form' %>
+
+   <a href="javascript:void(0)" id="close">Close</a>
+ </div>
+ <script type="text/javascript">
+  window.onload = function(){
+  var link =  document.getElementById('Add');
+  var divform  =   document.getElementById('divform');
+  var close = document.getElementById('close');  
+  link.onclick = function(){
+      divform.style.display = 'block'
+    }  
+    close.onclick = function(){
+      divform.style.display = 'none';
+     }
+   }
+ </script>
+ -->
